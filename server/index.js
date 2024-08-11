@@ -11,7 +11,7 @@ const propertyRoutes = require('./routes/propertyRoutes'); // Import property ro
 dotenv.config();
 
 const corsOptions = {
-  origin: 'https://prop2-git-main-palakkhatri18s-projects.vercel.app', // Frontend URL
+  origin: 'https://prop2-frontend-palakkhatri18s-projects.vercel.app/', // Frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'x-api-version'],
   preflightContinue: false,

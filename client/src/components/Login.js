@@ -30,7 +30,6 @@ const Login = ({ setIsAuthenticated }) => {
       <h2 className="text-center mb-4">Log In</h2>
       <Form onSubmit={handleSubmit} className="login-form">
         <Form.Group controlId="formUsername">
-          <Form.Label className="form-label">Username</Form.Label>
           <Form.Control
             type="text"
             value={username}
@@ -40,7 +39,6 @@ const Login = ({ setIsAuthenticated }) => {
           />
         </Form.Group>
         <Form.Group controlId="formPassword">
-          <Form.Label className="form-label">Password</Form.Label>
           <Form.Control
             type="password"
             value={password}

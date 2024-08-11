@@ -11,15 +11,20 @@ h1 {
 
 /* Filter Container */
 .filter-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
   margin-bottom: 2rem;
 }
 
-.filter-container .form-group {
-  flex: 1;
-  min-width: 200px;
+/* Responsive Filter Styles */
+@media (max-width: 576px) {
+  .filter-container .form-group {
+    width: 100%;
+  }
+}
+
+@media (min-width: 576px) {
+  .filter-container .form-group {
+    margin-bottom: 1rem;
+  }
 }
 
 /* Card Styles */

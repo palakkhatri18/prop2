@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {jwtDecode} from 'jwt-decode';
+import {jwtDecode} from 'jwt-decode'; // Correct import for jwt-decode
 import { fetchItems, addToCart } from '../services/api.js';
 import { Form, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -92,7 +92,7 @@ const Home = ({ isAdmin, isAuthenticated }) => {
         navigate('/cart'); // Redirect to cart page
       } catch (error) {
         console.error('Error adding to cart:', error);
-        alert('Item Already in the cart');
+        alert('Item already in the cart');
       }
     } else {
       navigate('/login'); // Redirect to login page if not authenticated
@@ -105,95 +105,109 @@ const Home = ({ isAdmin, isAuthenticated }) => {
         <Col md={12}>
           <h1 className="text-center mb-4">Available Properties</h1>
           <div className="filter-container">
-            <Form.Group as={Col} controlId="bhkFilter">
-              <Form.Control
-                as="select"
-                value={selectedBHK}
-                onChange={(e) => setSelectedBHK(e.target.value)}
-              >
-                <option value="">All BHKs</option>
-                {allBHKs.map((bhk, index) => (
-                  <option key={index} value={bhk}>
-                    {bhk}
-                  </option>
-                ))}
-              </Form.Control>
-            </Form.Group>
+            <Row>
+              <Col xs={12} sm={6} md={4} lg={3}>
+                <Form.Group controlId="bhkFilter">
+                  <Form.Control
+                    as="select"
+                    value={selectedBHK}
+                    onChange={(e) => setSelectedBHK(e.target.value)}
+                  >
+                    <option value="">All BHKs</option>
+                    {allBHKs.map((bhk, index) => (
+                      <option key={index} value={bhk} className='options'>
+                        {bhk}
+                      </option>
+                    ))}
+                  </Form.Control>
+                </Form.Group>
+              </Col>
 
-            <Form.Group as={Col} controlId="areaFilter">
-              <Form.Control
-                as="select"
-                value={selectedArea}
-                onChange={(e) => setSelectedArea(e.target.value)}
-              >
-                <option value="">All Areas</option>
-                {allAreas.map((area, index) => (
-                  <option key={index} value={area}>
-                    {area}
-                  </option>
-                ))}
-              </Form.Control>
-            </Form.Group>
+              <Col xs={12} sm={6} md={4} lg={3}>
+                <Form.Group controlId="areaFilter">
+                  <Form.Control
+                    as="select"
+                    value={selectedArea}
+                    onChange={(e) => setSelectedArea(e.target.value)}
+                  >
+                    <option value="">All Areas</option>
+                    {allAreas.map((area, index) => (
+                      <option key={index} value={area}>
+                        {area}
+                      </option>
+                    ))}
+                  </Form.Control>
+                </Form.Group>
+              </Col>
 
-            <Form.Group as={Col} controlId="towerFilter">
-              <Form.Control
-                as="select"
-                value={selectedTower}
-                onChange={(e) => setSelectedTower(e.target.value)}
-              >
-                <option value="">All Towers</option>
-                {allTowers.map((tower, index) => (
-                  <option key={index} value={tower}>
-                    {tower}
-                  </option>
-                ))}
-              </Form.Control>
-            </Form.Group>
+              <Col xs={12} sm={6} md={4} lg={3}>
+                <Form.Group controlId="towerFilter">
+                  <Form.Control
+                    as="select"
+                    value={selectedTower}
+                    onChange={(e) => setSelectedTower(e.target.value)}
+                  >
+                    <option value="">All Towers</option>
+                    {allTowers.map((tower, index) => (
+                      <option key={index} value={tower}>
+                        {tower}
+                      </option>
+                    ))}
+                  </Form.Control>
+                </Form.Group>
+              </Col>
 
-            <Form.Group as={Col} controlId="floorFilter">
-              <Form.Control
-                as="select"
-                value={selectedFloor}
-                onChange={(e) => setSelectedFloor(e.target.value)}
-              >
-                <option value="">All Floors</option>
-                {allFloors.map((floor, index) => (
-                  <option key={index} value={floor}>
-                    {floor}
-                  </option>
-                ))}
-              </Form.Control>
-            </Form.Group>
+              <Col xs={12} sm={6} md={4} lg={3}>
+                <Form.Group controlId="floorFilter">
+                  <Form.Control
+                    as="select"
+                    value={selectedFloor}
+                    onChange={(e) => setSelectedFloor(e.target.value)}
+                  >
+                    <option value="">All Floors</option>
+                    {allFloors.map((floor, index) => (
+                      <option key={index} value={floor}>
+                        {floor}
+                      </option>
+                    ))}
+                  </Form.Control>
+                </Form.Group>
+              </Col>
 
-            <Form.Group as={Col} controlId="societyFilter">
-              <Form.Control
-                as="select"
-                value={selectedSociety}
-                onChange={(e) => setSelectedSociety(e.target.value)}
-              >
-                <option value="">All Societies</option>
-                {allSocieties.map((society, index) => (
-                  <option key={index} value={society}>
-                    {society}
-                  </option>
-                ))}
-              </Form.Control>
-            </Form.Group>
+              <Col xs={12} sm={6} md={4} lg={3}>
+                <Form.Group controlId="societyFilter">
+                  <Form.Control
+                    as="select"
+                    value={selectedSociety}
+                    onChange={(e) => setSelectedSociety(e.target.value)}
+                  >
+                    <option value="">All Societies</option>
+                    {allSocieties.map((society, index) => (
+                      <option key={index} value={society}>
+                        {society}
+                      </option>
+                    ))}
+                  </Form.Control>
+                </Form.Group>
+              </Col>
 
-            <Form.Group as={Col} controlId="categoryFilter">
-              <Form.Control
-                as="select"
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-              >
-                <option value="">All Categories</option>
-                {allCategories.map((category, index) => (
-                  <option key={index} value={category}>
-                    {category}
-                  </option>
-                ))}
-              </Form.Control>
-            </Form.Group>
+              <Col xs={12} sm={6} md={4} lg={3}>
+                <Form.Group controlId="categoryFilter">
+                  <Form.Control
+                    as="select"
+                    value={selectedCategory}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                  >
+                    <option value="">All Categories</option>
+                    {allCategories.map((category, index) => (
+                      <option key={index} value={category}>
+                        {category}
+                      </option>
+                    ))}
+                  </Form.Control>
+                </Form.Group>
+              </Col>
+            </Row>
           </div>
         </Col>
       </Row>
@@ -212,7 +226,7 @@ const Home = ({ isAdmin, isAuthenticated }) => {
           ))
         ) : (
           <Col md={12}>
-            <p className="text-center">No item Found</p>
+            <p className="text-center">No items found</p>
           </Col>
         )}
       </Row>

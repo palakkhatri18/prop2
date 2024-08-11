@@ -23,9 +23,9 @@ const corsOptions = {
 const app = express();
 const MONGO_URI = process.env.MONGO_URI;
 
-app.use(cors(corsOptions)); // Use specific CORS options for production
+// app.use(cors(corsOptions)); 
 
-// app.use(cors());  Allow all origins for development
+app.use(cors()); // Allow all origins for development
 
 app.options('*', cors(corsOptions)); 
 

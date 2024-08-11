@@ -103,7 +103,7 @@ const Home = ({ isAdmin, isAuthenticated }) => {
     <Container className="home-container">
       <Row className="mb-4">
         <Col md={12}>
-          <h1 className="text-center mb-4">Available Properties1</h1>
+          <h1 className="text-center mb-4">Available Properties</h1>
           <div className="filter-container">
             <Row>
               <Col xs={6} sm={6} md={4} lg={3} className="mb-3">

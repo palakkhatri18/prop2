@@ -37,12 +37,12 @@ const Home = ({ isAdmin, isAuthenticated }) => {
           setItems(data);
           setFilteredItems(data);
 
-          setAllBHKs([...new Set(data.map((item) => item.BHK))]);
-          setAllAreas([...new Set(data.map((item) => item.area))]);
-          setAllTowers([...new Set(data.map((item) => item.tower))]);
-          setAllFloors([...new Set(data.map((item) => item.floor))]);
-          setAllSocieties([...new Set(data.map((item) => item.society))]);
-          setAllCategories([...new Set(data.map((item) => item.category))]);
+          setAllBHKs([...new Set(data.map((item) => item.BHK).filter(Boolean))]);
+          setAllAreas([...new Set(data.map((item) => item.area).filter(Boolean))]);
+          setAllTowers([...new Set(data.map((item) => item.tower).filter(Boolean))]);
+          setAllFloors([...new Set(data.map((item) => item.floor).filter(Boolean))]);
+          setAllSocieties([...new Set(data.map((item) => item.society).filter(Boolean))]);
+          setAllCategories([...new Set(data.map((item) => item.category).filter(Boolean))]);
         }
       } catch (error) {
         console.error('Error fetching items:', error);

@@ -30,11 +30,11 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => console.error('Failed to connect to MongoDB:', err));
 
 // CORS middleware
-if (process.env.NODE_ENV === 'production') {
+
   app.use(cors(corsOptions)); // Use specific CORS options for production
-} else {
-  app.use(cors()); // Allow all origins for development
-}
+
+  // app.use(cors());  Allow all origins for development
+
 app.options('*', cors(corsOptions)); 
 app.use(bodyParser.json());
 

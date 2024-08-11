@@ -1,3 +1,14 @@
+/* General Styles */
+.home-container {
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+h1 {
+  color: #343a40;
+  text-align: center;
+}
+
 /* Filter Container */
 .filter-container {
   display: flex;
@@ -6,37 +17,37 @@
   margin-bottom: 2rem;
 }
 
-/* Dropdown styles */
 .filter-container .form-group {
   flex: 1;
-  min-width: 200px; /* Minimum width for large screens */
+  min-width: 200px;
 }
 
-/* Responsive Design for Filter Container */
-@media (max-width: 768px) {
-  .filter-container {
-    flex-direction: column;
-  }
-
-  .filter-container .form-group {
-    margin-bottom: 1rem; /* Spacing between dropdowns */
-  }
+/* Card Styles */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  background-color: #fff;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Select element styles */
-.filter-container .form-group select {
-  width: 100%; /* Make dropdowns full width */
-  padding: 0.5rem; /* Add padding for better usability */
-  box-sizing: border-box; /* Include padding in width */
+.card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  transform: translateY(-0.125rem);
 }
 
-.options{
-  width: 50%;
+.card-body {
+  padding: 1.25rem;
 }
 
-/* Ensure responsiveness for small devices */
-@media (max-width: 576px) {
-  .filter-container .form-group select {
-    font-size: 0.875rem; /* Adjust font size for smaller screens */
-  }
+/* Text Justification */
+.card-title,
+.card-text {
+  text-align: justify;
+}
+
+/* Button Styles */
+button {
+  border-radius: 0.25rem;
+  margin-top: 1rem;
 }

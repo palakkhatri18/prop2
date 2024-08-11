@@ -21,8 +21,20 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB!'))
   .catch(err => console.error('Failed to connect to MongoDB:', err));
 
-// Enable CORS and body parsing
-app.use(cors());
+// Enable CORS for specific domains
+const allowedOrigins = ['https://prop2-palakkhatri18s-projects.vercel.app','https://prop2-git-main-palakkhatri18s-projects.vercel.app']; // Add your domain(s)
+app.use(cors({
+  origin: function(origin, callback){
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  }
+}));
+
 app.use(bodyParser.json());
 
 app.use('/api/auth', authRoutes);

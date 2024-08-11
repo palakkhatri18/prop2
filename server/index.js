@@ -18,8 +18,16 @@ const corsOptions = {
   optionsSuccessStatus: 204,
 };
 
+
+
 const app = express();
 const MONGO_URI = process.env.MONGO_URI;
+
+app.use(cors(corsOptions)); // Use specific CORS options for production
+
+// app.use(cors());  Allow all origins for development
+
+app.options('*', cors(corsOptions)); 
 
 app.get('/', (req, res) => {
   res.json('API is working!');
@@ -30,12 +38,6 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => console.error('Failed to connect to MongoDB:', err));
 
 // CORS middleware
-
-  app.use(cors(corsOptions)); // Use specific CORS options for production
-
-  // app.use(cors());  Allow all origins for development
-
-app.options('*', cors(corsOptions)); 
 app.use(bodyParser.json());
 
 app.use('/api/auth', authRoutes);

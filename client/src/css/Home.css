@@ -21,6 +21,7 @@ h1 {
   }
 }
 
+/* Ensure filters are in two columns on small screens */
 @media (min-width: 576px) {
   .filter-container .form-group {
     margin-bottom: 1rem;

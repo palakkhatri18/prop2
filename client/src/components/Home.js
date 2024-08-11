@@ -106,11 +106,11 @@ const Home = ({ isAdmin, isAuthenticated }) => {
           <h1 className="text-center mb-4">Available Properties</h1>
           <div className="filter-container">
             <Row>
-              <Col xs={12} sm={6} md={4} lg={3}>
+              <Col xs={6} sm={6} md={4} lg={3} className="mb-3">
                 <Form.Group controlId="bhkFilter">
                   <Form.Control
                     as="select"
-                    className="form-select form-select-sm mb-3" // Apply Bootstrap classes
+                    className="form-select form-select-sm"
                     value={selectedBHK}
                     onChange={(e) => setSelectedBHK(e.target.value)}
                   >
@@ -124,11 +124,11 @@ const Home = ({ isAdmin, isAuthenticated }) => {
                 </Form.Group>
               </Col>
 
-              <Col xs={12} sm={6} md={4} lg={3}>
+              <Col xs={6} sm={6} md={4} lg={3} className="mb-3">
                 <Form.Group controlId="areaFilter">
                   <Form.Control
                     as="select"
-                    className="form-select form-select-sm mb-3" // Apply Bootstrap classes
+                    className="form-select form-select-sm"
                     value={selectedArea}
                     onChange={(e) => setSelectedArea(e.target.value)}
                   >
@@ -142,11 +142,11 @@ const Home = ({ isAdmin, isAuthenticated }) => {
                 </Form.Group>
               </Col>
 
-              <Col xs={12} sm={6} md={4} lg={3}>
+              <Col xs={6} sm={6} md={4} lg={3} className="mb-3">
                 <Form.Group controlId="towerFilter">
                   <Form.Control
                     as="select"
-                    className="form-select form-select-sm mb-3" // Apply Bootstrap classes
+                    className="form-select form-select-sm"
                     value={selectedTower}
                     onChange={(e) => setSelectedTower(e.target.value)}
                   >
@@ -160,11 +160,11 @@ const Home = ({ isAdmin, isAuthenticated }) => {
                 </Form.Group>
               </Col>
 
-              <Col xs={12} sm={6} md={4} lg={3}>
+              <Col xs={6} sm={6} md={4} lg={3} className="mb-3">
                 <Form.Group controlId="floorFilter">
                   <Form.Control
                     as="select"
-                    className="form-select form-select-sm mb-3" // Apply Bootstrap classes
+                    className="form-select form-select-sm"
                     value={selectedFloor}
                     onChange={(e) => setSelectedFloor(e.target.value)}
                   >
@@ -178,11 +178,11 @@ const Home = ({ isAdmin, isAuthenticated }) => {
                 </Form.Group>
               </Col>
 
-              <Col xs={12} sm={6} md={4} lg={3}>
+              <Col xs={6} sm={6} md={4} lg={3} className="mb-3">
                 <Form.Group controlId="societyFilter">
                   <Form.Control
                     as="select"
-                    className="form-select form-select-sm mb-3" // Apply Bootstrap classes
+                    className="form-select form-select-sm"
                     value={selectedSociety}
                     onChange={(e) => setSelectedSociety(e.target.value)}
                   >
@@ -196,11 +196,11 @@ const Home = ({ isAdmin, isAuthenticated }) => {
                 </Form.Group>
               </Col>
 
-              <Col xs={12} sm={6} md={4} lg={3}>
+              <Col xs={6} sm={6} md={4} lg={3} className="mb-3">
                 <Form.Group controlId="categoryFilter">
                   <Form.Control
                     as="select"
-                    className="form-select form-select-sm mb-3" // Apply Bootstrap classes
+                    className="form-select form-select-sm"
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
                   >

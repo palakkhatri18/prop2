@@ -10,6 +10,14 @@ const propertyRoutes = require('./routes/propertyRoutes'); // Import property ro
 
 dotenv.config();
 
+const corsOptions = {
+  origin: 'https://mern-book-store-ajdb-frontend-deepanshu-tanejas-projects.vercel.app', // Frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-api-version'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
+
 const app = express();
 const MONGO_URI = process.env.MONGO_URI;
 
@@ -21,20 +29,13 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB!'))
   .catch(err => console.error('Failed to connect to MongoDB:', err));
 
-// Enable CORS for specific domains
-const allowedOrigins = ['https://prop2-palakkhatri18s-projects.vercel.app','https://prop2-git-main-palakkhatri18s-projects.vercel.app']; // Add your domain(s)
-app.use(cors({
-  origin: function(origin, callback){
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if(!origin) return callback(null, true);
-    if(allowedOrigins.indexOf(origin) === -1){
-      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  }
-}));
-
+// CORS middleware
+if (process.env.NODE_ENV === 'production') {
+  app.use(cors(corsOptions)); // Use specific CORS options for production
+} else {
+  app.use(cors()); // Allow all origins for development
+}
+app.options('*', cors(corsOptions)); 
 app.use(bodyParser.json());
 
 app.use('/api/auth', authRoutes);

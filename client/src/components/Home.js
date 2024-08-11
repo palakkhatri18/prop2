@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {jwtDecode} from 'jwt-decode'; // Correct import for jwt-decode
+import { jwtDecode } from 'jwt-decode'; // Correct import for jwt-decode
 import { fetchItems, addToCart } from '../services/api.js';
 import { Form, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -110,12 +110,13 @@ const Home = ({ isAdmin, isAuthenticated }) => {
                 <Form.Group controlId="bhkFilter">
                   <Form.Control
                     as="select"
+                    className="form-select form-select-sm mb-3" // Apply Bootstrap classes
                     value={selectedBHK}
                     onChange={(e) => setSelectedBHK(e.target.value)}
                   >
                     <option value="">All BHKs</option>
                     {allBHKs.map((bhk, index) => (
-                      <option key={index} value={bhk} className='options'>
+                      <option key={index} value={bhk}>
                         {bhk}
                       </option>
                     ))}
@@ -127,6 +128,7 @@ const Home = ({ isAdmin, isAuthenticated }) => {
                 <Form.Group controlId="areaFilter">
                   <Form.Control
                     as="select"
+                    className="form-select form-select-sm mb-3" // Apply Bootstrap classes
                     value={selectedArea}
                     onChange={(e) => setSelectedArea(e.target.value)}
                   >
@@ -144,6 +146,7 @@ const Home = ({ isAdmin, isAuthenticated }) => {
                 <Form.Group controlId="towerFilter">
                   <Form.Control
                     as="select"
+                    className="form-select form-select-sm mb-3" // Apply Bootstrap classes
                     value={selectedTower}
                     onChange={(e) => setSelectedTower(e.target.value)}
                   >
@@ -161,6 +164,7 @@ const Home = ({ isAdmin, isAuthenticated }) => {
                 <Form.Group controlId="floorFilter">
                   <Form.Control
                     as="select"
+                    className="form-select form-select-sm mb-3" // Apply Bootstrap classes
                     value={selectedFloor}
                     onChange={(e) => setSelectedFloor(e.target.value)}
                   >
@@ -178,6 +182,7 @@ const Home = ({ isAdmin, isAuthenticated }) => {
                 <Form.Group controlId="societyFilter">
                   <Form.Control
                     as="select"
+                    className="form-select form-select-sm mb-3" // Apply Bootstrap classes
                     value={selectedSociety}
                     onChange={(e) => setSelectedSociety(e.target.value)}
                   >
@@ -195,6 +200,7 @@ const Home = ({ isAdmin, isAuthenticated }) => {
                 <Form.Group controlId="categoryFilter">
                   <Form.Control
                     as="select"
+                    className="form-select form-select-sm mb-3" // Apply Bootstrap classes
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
                   >

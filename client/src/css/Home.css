@@ -19,7 +19,6 @@
   }
 
   .filter-container .form-group {
-    min-width: 100%; /* Ensure full width on small screens */
     margin-bottom: 1rem; /* Spacing between dropdowns */
   }
 }
